@@ -54,7 +54,7 @@ class Gutenberg
      */
     public function deriveSettingsFromConfig(Collection $config)
     {
-        $settings = collect();
+        $settings = Collection::make();
 
         $config->each(function ($setting, $item) use ($settings) {
             if ($this->isValidSetting($setting)) {

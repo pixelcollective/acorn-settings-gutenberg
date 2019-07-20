@@ -40,8 +40,9 @@ class GutenbergServiceProvider extends ServiceProvider
             __DIR__ . '/../config/gutenberg.php' => config_path('gutenberg.php'),
         ]);
 
-        $this->app->make('wordpress.gutenberg')->init(Collection::make(
-            $this->app['config']->get('gutenberg')
-        ));
+        $gutenbergSettings = Collection::make($this->app['config']->get('gutenberg'));
+        $gutenberg = $this->app->make('wordpress.gutenberg');
+
+        $gutenberg->init($gutenbergSettings);
     }
 }
