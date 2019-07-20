@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "TinyPixel\\Settings": "src/"
+      "TinyPixel\\Settings\\": "src/"
     }
   },
   "require": {
