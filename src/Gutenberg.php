@@ -62,7 +62,7 @@ class Gutenberg
             }
         });
 
-        return $settings;
+        return $settings->collapse();
     }
 
     /**
@@ -86,7 +86,8 @@ class Gutenberg
      */
     public function setOptions(Collection $settings)
     {
-        if (isset($this->settings['disabled'])) {
+        if (isset($this->settings['disabled'])
+        && $this->settings['disabled']==true) {
             $this->disable();
         }
 
@@ -147,7 +148,7 @@ class Gutenberg
             return;
         }
 
-        $this->unlockPostType(\get_post_type_object('wp_block'), 'reusableBlocksType');
+        $this->unlockPostType(get_post_type_object('wp_block'), 'reusableBlocksType');
 
         if (isset($this->settings['reusableBlocksIcon'])) {
             $this->setReusableBlocksIcon($this->reusableBlocksType);
@@ -157,17 +158,10 @@ class Gutenberg
             $this->setReusableBlocksLabels($this->reusableBlocksType);
         }
 
-        if (isset($this->settings['reusableBlocksCapabilityType'])) {
-            $this->modifyReusableBlocksCapabilityType(
-                $this->reusableBlocksType,
-                $settings['reusableBlocksCapabilityType']
-            );
-        }
-
         if (isset($this->settings['reusableBlocksCapabilities'])) {
             $this->modifyReusableBlocksCapabilities(
                 $this->reusableBlocksType,
-                $settings['reusableBlocksCapabilities']
+                $this->settings['reusableBlocksCapabilities']
             );
         }
 
