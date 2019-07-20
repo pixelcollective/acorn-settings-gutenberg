@@ -1,0 +1,35 @@
+{
+  "name": "tiny-pixel/acorn-settings-gutenberg",
+  "version": "0.0.1",
+  "type": "package",
+  "license": "MIT",
+  "description": "WordPress 5 Block Editor Management for Acorn projects",
+  "authors": [
+    {
+      "name": "Kelly Mears",
+      "email": "kelly@tinypixel.dev"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "acorn",
+    "sage",
+    "gutenberg"
+  ],
+  "support": {
+    "issues": "https://github.com/pixelcollective/acorn-settings-gutenberg/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "TinyPixel\\Settings": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.3"
+  },
+  "extra": {
+    "acorn": {
+      "providers": ["TinyPixel\\Settings\\Providers\\GutenbergServiceProvider"]
+    }
+  }
+}
