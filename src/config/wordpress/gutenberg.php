@@ -1,22 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Gutenberg
-|--------------------------------------------------------------------------
-|
-| Modify the behavior and appearance of the WordPress Editor
-|
-*/
-
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Disable Gutenberg
+    | Disable Block Editor
     |--------------------------------------------------------------------------
     |
-    | Disables all Gutenberg functionality
+    | Disables all Block Editor functionality
     |
     */
 
@@ -105,14 +96,25 @@ return [
     | Editor Styles
     |--------------------------------------------------------------------------
     |
-    | Block view composers provide a more convenient method for registering
-    | blocks and also allow blocks to be rendered using certain Blade views.
+    | Support the default editor styles
     |
     | @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
     |
     */
 
-    'supportEditorStyles' => true,
+    'supportEditorStyles' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dark Editor Styles
+    |--------------------------------------------------------------------------
+    |
+    | Support editor styles for dashboards with dark mode enabled
+    |
+    | @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
+    |
+    */
+
     'supportDarkEditorStyles' => false,
 
     /*
