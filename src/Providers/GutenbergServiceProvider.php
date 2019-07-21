@@ -36,13 +36,12 @@ class GutenbergServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/gutenberg.php' => config_path('gutenberg.php'),
-        ]);
+        $config = __DIR__ . '/../config/wordpress/gutenberg.php';
 
-        $gutenbergSettings = Collection::make($this->app['config']->get('gutenberg'));
-        $gutenberg = $this->app->make('wordpress.gutenberg');
+        $this->publishes([$config => config_path('wordpress/gutenberg.php')]);
 
-        $gutenberg->init($gutenbergSettings);
+        $this->app->make('wordpress.gutenberg')->init(Collection::make(
+            $this->app['config']->get('wordpress.gutenberg')
+        ));
     }
 }
